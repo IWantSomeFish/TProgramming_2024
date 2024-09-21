@@ -7,6 +7,9 @@ function taskA(xStart,xEnd,xStep){
     let count = 0
     const a = 1.35
     const b = 0.98
+    if (xStep < 0){
+        return 0
+    }
     for (let i = xStart; i < xEnd; i= i + xStep){
         count+=1
         console.log(calculateFunc(a,b,i))
