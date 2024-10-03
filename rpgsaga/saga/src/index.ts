@@ -1,3 +1,4 @@
+import {fox} from "./fox"
 const xStart = 1.14
 const xEnd = 3.28
 const xStep = 0.4
@@ -32,6 +33,14 @@ function calculateFunc (a:number,b:number,x:number): number {
         let y = Number((topPart/bottomPart).toFixed(2))
         return y
 }
+function createFox(){
+    let newFox = new fox('RedFox',10,'female')
+    console.log(newFox)
+    console.log(newFox.whatTheFoxSay())
+    console.log(newFox.foxSleep(10))
+    console.log(newFox.foxRun(10,15))
+}
 taskA(xStart,xEnd,xStep)
 taskB(xArray)
+createFox()
 export {calculateFunc,taskA,taskB}
