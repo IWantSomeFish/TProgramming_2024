@@ -30,7 +30,7 @@ class Fox {
     return this._name;
   }
   public set sex(n: string) {
-    n = n.toLowerCase()
+    n = n.toLowerCase();
 
     if (n === 'female' || n === 'male') {
       this._sex = n;
