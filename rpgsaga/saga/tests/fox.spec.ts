@@ -1,4 +1,4 @@
-import { fox } from "../src/fox"
+import { fox } from "../src/mathAndClassLab/fox"
 
 describe('Fox class methods tests',()=>{
     it('Constructor test', ()=>{
@@ -36,7 +36,7 @@ describe('Fox class methods tests',()=>{
         })
         it('Sex basic test',()=>{
             newFox.sex = 'Female'
-            expect(newFox.sex == 'Female')
+            expect(newFox.sex == 'female')
         })
         it('Age uncorrect test',()=>{
             expect(()=>{

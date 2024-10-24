@@ -1,4 +1,4 @@
-import { calculateFunc,taskA,taskB } from "../src";
+import { calculateFunc,taskA,taskB } from "../src/mathAndClassLab/mathAndClassLab";
 
 describe('TaskB func tests', () => {
     it('Array with len = 5', () => {
