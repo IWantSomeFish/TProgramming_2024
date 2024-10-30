@@ -1,8 +1,8 @@
 abstract class Armor {
   name: string;
-  private _baseDefence: number;
-  private _currentDefence: number;
-  private _elementDefType: string;
+  protected _baseDefence: number;
+  protected _currentDefence: number;
+  protected _elementDefType: string;
 
   constructor(name: string, baseDefence: number, elementDefType: string) {
     this.name = name;

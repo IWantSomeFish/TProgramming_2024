@@ -2,9 +2,9 @@ import Weapon from '../weaponInterface';
 
 abstract class MageWaepon implements Weapon {
   name: string;
-  private _baseDamage: number;
-  private _currentDamage: number;
-  private _attackType: string;
+  protected _baseDamage: number;
+  protected _currentDamage: number;
+  protected _attackType: string;
 
   public set currentDamage(damage: number) {
     this._currentDamage = damage;
@@ -13,9 +13,7 @@ abstract class MageWaepon implements Weapon {
   public get attackType() {
     return this._attackType;
   }
-  get currentDamage(){
-    return this._currentDamage;
-  }
+  
   constructor(name: string, baseDamage: number, attackType: string) {
     this.name = name;
     this._baseDamage = baseDamage;

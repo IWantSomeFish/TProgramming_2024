@@ -3,10 +3,10 @@ import KnightWeapon from '../weapon/knightWeapon/knightWeapon';
 
 abstract class Character {
   name: string;
-  private _maxHP: number;
-  private _currentHP: number;
-  private _currentArmor: Armor;
-  private _currentWeapon: KnightWeapon;
+  protected _maxHP: number;
+  protected _currentHP: number;
+  protected _currentArmor: Armor;
+  protected _currentWeapon: KnightWeapon;
 
   constructor(name: string, maxHP: number, armor: Armor, weapon: KnightWeapon) {
     this.name = name;
@@ -21,7 +21,6 @@ abstract class Character {
 
   takeDamage(damage: number, damageType: string) {
     const result = this._currentArmor.reduceDamage(damage, damageType);
-    console.log(result)
     if (this._currentHP - damage < 0) {
       this._currentHP = 0;
     } else {

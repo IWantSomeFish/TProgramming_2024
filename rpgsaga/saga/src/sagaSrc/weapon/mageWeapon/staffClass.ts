@@ -8,7 +8,7 @@ class Staff extends mageWeapon {
   }
 
   magicMissile(target: character) {
-    target.takeDamage((this.currentDamage + 20), this.attackType);
+    target.takeDamage((this._currentDamage + 20), this._attackType);
   }
 }
 export default Staff;
