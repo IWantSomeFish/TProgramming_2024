@@ -1,12 +1,13 @@
-import Armor from "./armorInterface";
+import Armor from './armorInterface';
 
-class KnightArmor extends Armor{
-    currentDefence: number;
+class KnightArmor extends Armor {
+  constructor(name: string, baseDefence: number, elementDefType: string) {
+    super(name, baseDefence, elementDefType);
+  }
 
-    constructor(public name: string,public baseDefence: number){
-        super();
-        this.currentDefence = baseDefence;
-    }
+  shieldUp() {
+    this.changeDefence(10);
+  }
 }
 
-export default KnightArmor
+export default KnightArmor;
