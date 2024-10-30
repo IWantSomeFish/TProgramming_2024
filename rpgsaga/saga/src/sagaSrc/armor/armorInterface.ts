@@ -35,7 +35,9 @@ abstract class Armor {
       this._currentDefence = this._currentDefence + defence;
     }
   }
-
+  multiplyDamage(value: number): void {
+    this._currentDefence = this._currentDefence * value;
+  }
   setDefenceDefault() {
     this._currentDefence = this._baseDefence;
   }
