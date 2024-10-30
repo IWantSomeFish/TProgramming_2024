@@ -1,14 +1,14 @@
 import Armor from '../armor/armorInterface';
-import KnightWeapon from '../weapon/knightWeapon/knightWeapon';
+import Weapon from '../weapon/weaponInterface';
 
 abstract class Character {
   name: string;
   protected _maxHP: number;
   protected _currentHP: number;
   protected _currentArmor: Armor;
-  protected _currentWeapon: KnightWeapon;
+  protected _currentWeapon: Weapon;
 
-  constructor(name: string, maxHP: number, armor: Armor, weapon: KnightWeapon) {
+  constructor(name: string, maxHP: number, armor: Armor, weapon: Weapon) {
     this.name = name;
     this._maxHP = maxHP;
     this._currentHP = maxHP;
