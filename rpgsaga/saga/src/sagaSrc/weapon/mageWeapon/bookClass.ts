@@ -1,13 +1,14 @@
-import Character from "../../character/characterAbstract";
-import MageWaepon from "./mageWeapon";
+import Character from '../../character/characterAbstract';
 
-class book extends MageWaepon{
-    constructor(name: string, baseDamage: number, attackType: string){
-        super(name,baseDamage,attackType)
-    }
+import MageWaepon from './mageWeapon';
 
-    secialAbility(target: Character){
-        target.changeCharHP(5);
-    }
+class book extends MageWaepon {
+  constructor(name: string, baseDamage: number, attackType: string) {
+    super(name, baseDamage, attackType);
+  }
+
+  secialAbility(target: Character) {
+    target.changeCharHP(5);
+  }
 }
 export default book;

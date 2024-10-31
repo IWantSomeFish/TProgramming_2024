@@ -13,7 +13,7 @@ abstract class MageWaepon implements Weapon {
   public get attackType() {
     return this._attackType;
   }
-  
+
   constructor(name: string, baseDamage: number, attackType: string) {
     this.name = name;
     this._baseDamage = baseDamage;
