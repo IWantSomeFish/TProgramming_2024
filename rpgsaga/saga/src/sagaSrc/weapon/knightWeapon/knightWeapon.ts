@@ -1,3 +1,4 @@
+import Character from '../../character/characterAbstract';
 import Weapon from '../weaponInterface';
 
 abstract class KnightWeapon implements Weapon {
@@ -24,6 +25,7 @@ abstract class KnightWeapon implements Weapon {
     this._critMultiple = critMultiplier;
     this._attackType = attackType;
   }
+   abstract specialAbility(target: Character): any;
 
   changeDamage(value: number): void {
     if (this._currentDamage + value <= 0) {
@@ -36,11 +38,11 @@ abstract class KnightWeapon implements Weapon {
     this._currentDamage = this._currentDamage * value;
   }
 
-  attack() {
+  attack(target: Character) {
     if (Math.random() * 100 <= this._critChance) {
-      return this._currentDamage * this._critMultiple;
+      target.takeDamage((this._currentDamage * this._critMultiple),this._attackType);
     } else {
-      return [this._currentDamage, this._attackType];
+      target.takeDamage(this._currentDamage, this._attackType);
     }
   }
 

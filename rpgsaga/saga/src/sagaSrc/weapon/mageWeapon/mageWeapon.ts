@@ -1,3 +1,4 @@
+import Character from '../../character/characterAbstract';
 import Weapon from '../weaponInterface';
 
 abstract class MageWaepon implements Weapon {
@@ -20,11 +21,12 @@ abstract class MageWaepon implements Weapon {
     this._currentDamage = baseDamage;
     this._attackType = attackType;
   }
+    abstract specialAbility(target: Character): any;
 
-  attack() {
-    return [this._currentDamage, this._attackType];
-  }
-  changeDamage(value: number): void {
+    attack(target: Character) {
+        target.takeDamage(this._currentDamage,this._attackType);
+    }
+    changeDamage(value: number): void {
     const diff = this._currentDamage + value;
     if (diff < 0) {
       this._currentDamage = 0;
@@ -32,10 +34,10 @@ abstract class MageWaepon implements Weapon {
       this._currentDamage = diff;
     }
   }
-  multiplyDamage(value: number): void {
+    multiplyDamage(value: number): void {
     this._currentDamage = this._currentDamage * value;
   }
-  setDamageDefault(): void {
+    setDamageDefault(): void {
     this._currentDamage = this._baseDamage;
   }
 }
