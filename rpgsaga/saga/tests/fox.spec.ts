@@ -1,4 +1,4 @@
-import { fox } from "../src/fox"
+import { fox } from "../src/mathAndClassLab/fox"
 
 describe('Fox class methods tests',()=>{
     it('Constructor test', ()=>{
