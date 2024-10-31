@@ -1,7 +1,7 @@
 import KnightArmor from '../../armor/knightArmor';
 import Fabric from '../fabricAbstract';
 
-class knightArmorFabric extends Fabric {
+class KnightArmorFabric extends Fabric {
   private armorNames = ['Steel Plate', 'Black rock', 'Vail of night', 'Daybreaker'];
   private damageTypes = ['fire', 'ice', 'psyhic', 'thunder'];
   public createArmor(): KnightArmor {
@@ -11,4 +11,4 @@ class knightArmorFabric extends Fabric {
     return new KnightArmor(armorName, defence, defenceType);
   }
 }
-export default knightArmorFabric;
+export default KnightArmorFabric;

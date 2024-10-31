@@ -28,4 +28,4 @@ class KnightWeaponFabric extends Fabric {
     }
   }
 }
-export default knightWeaponFabric;
+export default KnightWeaponFabric;

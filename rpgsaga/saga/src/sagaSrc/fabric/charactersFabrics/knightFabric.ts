@@ -1,11 +1,11 @@
 import knight from '../../character/knight';
-import knightArmorFabric from '../armorFabrics/knightArmorFabric';
+import KnightArmorFabric from '../armorFabrics/knightArmorFabric';
 import Fabric from '../fabricAbstract';
 import knightWeaponFabric from '../weaponFabrics/knightWeaponFabric';
 
 class knightFabric extends Fabric {
   private weaponFabric = new knightWeaponFabric();
-  private armorFabric = new knightArmorFabric();
+  private armorFabric = new KnightArmorFabric();
   private knightNames: string[] = ['Harald', 'Robin', 'Fernando'];
 
   createKnight(): knight {
