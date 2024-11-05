@@ -16,7 +16,7 @@ class MageWeaponFabric extends Fabric {
         return new Staff(staffName, staffDamage, staffAttackType);
 
       case 'book':
-        const bookNames = ['Necronominicon', 'Book of Wizard', ''];
+        const bookNames = ['Necronominicon', 'Book of Wizard', 'Book of Revelations'];
         const bookName = bookNames[this.createRandomNuber(0, bookNames.length - 1)];
         const bookDamage = this.createRandomNuber(10, 15);
         const bookAttackType = damageTypes[this.createRandomNuber(0, damageTypes.length - 1)];
