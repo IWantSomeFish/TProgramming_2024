@@ -5,7 +5,7 @@ import Elements from '../../../../enums/elementsEnum';
 import ability from '../../../abilityAbstract';
 
 class shackle extends ability {
-  protected _name: string = 'Связка';
+  readonly _name: string = 'Связка';
   protected _discription: string = `Наносит  ${this.damage} урона`;
   protected _onUseEffect: effect = new stun();
   protected _damage: number = 10;

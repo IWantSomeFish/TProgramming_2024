@@ -5,7 +5,7 @@ import Elements from '../../enums/elementsEnum';
 import ability from '../abilityAbstract';
 
 class shieldUp extends ability {
-  protected _name: string = 'Поднять щиты!';
+  readonly_name: string = 'Поднять щиты!';
   protected _discription: string = `Добавляет 10 защиты`;
   protected _onUseEffect: effect = new defUp();
   protected _damage: number = 0;

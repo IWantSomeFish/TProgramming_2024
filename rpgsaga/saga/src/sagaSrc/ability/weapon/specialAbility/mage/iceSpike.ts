@@ -5,7 +5,7 @@ import Elements from '../../../../enums/elementsEnum';
 import ability from '../../../abilityAbstract';
 
 class iceSpike extends ability {
-  protected _name: string = 'Огненный шар';
+  readonly _name: string = 'Огненный шар';
   protected _onUseEffect: effect = new freeze();
   protected _damage: number = 20;
   protected _abilityElement: Elements = Elements.water;

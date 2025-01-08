@@ -3,7 +3,7 @@ import Elements from '../../../enums/elementsEnum';
 import ability from '../../abilityAbstract';
 
 class longBowAttack extends ability {
-  protected _name: string = 'Выстрел из лука';
+  readonly _name: string = 'Выстрел из лука';
   protected _discription: string = `Обычная атака из лука, наносит ${this._damage} урона`;
   protected _onUseEffect = undefined;
   protected _damage: number = 20;

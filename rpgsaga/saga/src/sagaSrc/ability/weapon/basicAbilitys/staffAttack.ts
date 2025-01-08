@@ -4,7 +4,7 @@ import Elements from '../../../enums/elementsEnum';
 import ability from '../../abilityAbstract';
 
 class staffAttack extends ability {
-  protected _name: string = 'Атака мечем';
+  readonly _name: string = 'Атака мечем';
   protected _discription: string = `Обычная атака мечом, наносит ${this._damage} урона`;
   protected _onUseEffect: effect = undefined;
   protected _damage: number = 10;

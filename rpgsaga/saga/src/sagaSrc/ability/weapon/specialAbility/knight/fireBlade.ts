@@ -5,7 +5,7 @@ import Elements from '../../../../enums/elementsEnum';
 import ability from '../../../abilityAbstract';
 
 class fireBlade extends ability {
-  protected _name: string = 'Огненный клинок';
+  readonly _name: string = 'Огненный клинок';
   protected _discription: string = `Изменяет урон оружия на огонь на три хода`;
   protected _onUseEffect: elementChange = new elementChange();
   protected _damage: number = 0;

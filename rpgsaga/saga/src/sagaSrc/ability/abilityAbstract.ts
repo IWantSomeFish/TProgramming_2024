@@ -3,7 +3,7 @@ import abilityTarget from '../enums/abilityTarget';
 import Elements from '../enums/elementsEnum';
 
 abstract class ability {
-  protected _name: string;
+  readonly _name: string;
   protected _discription: string;
   protected _onUseEffect: effect;
   protected _damage: number;

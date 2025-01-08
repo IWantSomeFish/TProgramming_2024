@@ -4,7 +4,7 @@ import Elements from '../../enums/elementsEnum';
 import ability from '../abilityAbstract';
 
 class changeType extends ability {
-  protected _name: string = 'Изменение брони';
+  readonly _name: string = 'Изменение брони';
   protected _discription: string = `Меняет тип защиты персонажа`;
   protected _onUseEffect: elementChange = new elementChange();
   protected _damage: number = 0;
