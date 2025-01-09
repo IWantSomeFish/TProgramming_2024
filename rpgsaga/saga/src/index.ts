@@ -1,47 +1,16 @@
-import { fox } from './fox';
+import { Game } from './sagaSrc/gameClass/game';
 
-const xStart = 1.14;
-const xEnd = 3.28;
-const xStep = 0.4;
-const xArray = [1.1, 2.4, 3.6, 1.7, 3.9];
-
-function taskA(start: number, end: number, step: number) {
-  let count = 0;
-  const a = 1.35;
-  const b = 0.98;
-  if (step < 0) {
-    return 0;
-  }
-  for (let i = start; i < end; i = i + step) {
-    count += 1;
-    console.log(calculateFunc(a, b, i));
-  }
-  return count;
+const randGame: Game = new Game();
+randGame.initTeams(4);
+randGame.shuffleOrder();
+for (let i = 0; i < randGame.teamOne.length; i++) {
+  console.log(randGame.teamOne[i].name);
+  console.log(randGame.teamTwo[i].name);
 }
-function taskB(array: number[]) {
-  let count = 0;
-  const a = 1.35;
-  const b = 0.98;
-  for (const i of array) {
-    count += 1;
-    console.log(calculateFunc(a, b, i));
-  }
-  return count;
+for (let i = 0; i < randGame.turnOrder.length; i++) {
+  console.log(randGame.turnOrder[i].name);
 }
-function calculateFunc(a: number, b: number, x: number): number {
-  const topPart = Number(Math.pow(a * x + b, 1.0 / 3).toFixed(2));
-  const bottomPart = Math.pow(Math.log10(x), 2);
-  const y = Number((topPart / bottomPart).toFixed(2));
-  return y;
-}
-function createFox() {
-  const newFox = new fox('RedFox', 10, 'female');
-  console.log(newFox);
-  console.log(newFox.whatTheFoxSay());
-  console.log(newFox.foxSleep(10));
-  console.log(newFox.foxRun(10, 15));
-}
-taskA(xStart, xEnd, xStep);
-taskB(xArray);
-createFox();
-export { calculateFunc, taskA, taskB };
+const result = randGame.newTurn();
+console.log(result[0].chooseAttack());
+const testGame = new Game();
+testGame.gameInit();
