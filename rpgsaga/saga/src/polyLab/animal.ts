@@ -1,4 +1,4 @@
-abstract class animal {
+abstract class Animal {
   protected _name: string;
   protected _age: number;
   protected _color: string;
@@ -24,4 +24,4 @@ abstract class animal {
     return `${this._name} with ${this._age} and its color is ${this._color}`;
   }
 }
-export default animal;
+export default Animal;

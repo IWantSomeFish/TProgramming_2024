@@ -1,14 +1,14 @@
 import shackle from '../../../ability/weapon/specialAbility/archer/shackle';
-import WeaponAbility from '../../../enums/abilityNames';
+import weaponAbility from '../../../enums/abilityNames';
 import fabric from '../../fabricAbstract';
 
-class archerWAF extends fabric {
+class ArcherWAF extends fabric {
   createAbility() {
-    const abilityNames = [WeaponAbility.shackle, WeaponAbility.powerShot];
+    const abilityNames = [weaponAbility.shackle, weaponAbility.powerShot];
     switch (abilityNames[this.createRandomNuber(0, abilityNames.length - 1)]) {
-      case WeaponAbility.shackle:
+      case weaponAbility.shackle:
         return new shackle();
     }
   }
 }
-export default archerWAF;
+export default ArcherWAF;

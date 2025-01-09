@@ -1,17 +1,17 @@
 import effectTarget from '../enums/effectTarget';
-import Elements from '../enums/elementsEnum';
+import elements from '../enums/elementsEnum';
 
-abstract class effect {
-  readonly _name: string;
-  readonly _discription: string;
+abstract class Effect {
+  readonly name: string;
+  readonly discription: string;
   protected _duration: number;
-  protected _effectType: Elements;
-  readonly _effectTarget: effectTarget;
+  protected _effectType: elements;
+  readonly effectTarget: effectTarget;
   protected _isApplied: boolean;
   get getEffectTarget(): effectTarget {
-    return this._effectTarget;
+    return this.effectTarget;
   }
-  get getEffectType(): Elements {
+  get getEffectType(): elements {
     return this._effectType;
   }
   get getDuration(): number {
@@ -20,17 +20,17 @@ abstract class effect {
   get isApplied(): boolean {
     return this._isApplied;
   }
-  abstract useEffect(): any;
-  abstract effectEnd(): any;
+  abstract useEffect();
+  abstract effectEnd();
   reduceDuration(): void {
     this._duration = this._duration - 1;
   }
   effectDiscription() {
-    console.log(this._name);
-    console.log(this._discription);
+    console.log(this.name);
+    console.log(this.discription);
   }
   endImmidially() {
     this._duration = -1;
   }
 }
-export default effect;
+export default Effect;

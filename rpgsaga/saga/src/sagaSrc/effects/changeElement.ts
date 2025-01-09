@@ -1,29 +1,29 @@
 import effectTarget from '../enums/effectTarget';
-import Elements from '../enums/elementsEnum';
+import elements from '../enums/elementsEnum';
 
 import effect from './effectAbstract';
 
-class elementChange extends effect {
-  readonly _name: string = 'Изменение элемента';
-  readonly _discription: string = `Меняет элемент снаряжения на`;
+class ElementChange extends effect {
+  readonly name: string = 'Изменение элемента';
+  readonly discription: string = `Меняет элемент снаряжения на`;
   protected _duration: number = 3;
-  protected _effectType: Elements = Elements.pure;
-  readonly _effectTarget: effectTarget = effectTarget.armorType;
+  protected _effectType: elements = elements.pure;
+  readonly effectTarget: effectTarget = effectTarget.armorType;
   protected _isApplied: boolean = false;
-  private _defaultType: Elements = undefined;
+  private _defaultType: elements = undefined;
 
-  setDefaultType(value: Elements) {
+  setDefaultType(value: elements) {
     this._effectType = value;
   }
-  takeBasicElement(type: Elements) {
+  takeBasicElement(type: elements) {
     this._defaultType = type;
   }
-  useEffect(): Elements {
+  useEffect(): elements {
     this._isApplied = true;
     return this._effectType;
   }
-  effectEnd(): Elements {
+  effectEnd(): elements {
     return this._defaultType;
   }
 }
-export default elementChange;
+export default ElementChange;

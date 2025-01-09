@@ -6,50 +6,54 @@ import longBowAttack from '../ability/weapon/basicAbilitys/longBowAttack';
 import staffAttack from '../ability/weapon/basicAbilitys/staffAttack';
 import swordAttack from '../ability/weapon/basicAbilitys/swordAttack';
 import weapon from '../weapon/weaponAbstract';
-import Class from '../enums/classesEnum';
-import Weapons from '../enums/weaponsEnum';
+import classEnum from '../enums/classesEnum';
+import weapons from '../enums/weaponsEnum';
 
 import archerWAF from './abilityFabrics/waponAbilityFabric/archerWAF';
-import knightWAF from './abilityFabrics/waponAbilityFabric/knightWAF';
-import mageWAF from './abilityFabrics/waponAbilityFabric/mageWAF';
+import knightWaf from './abilityFabrics/waponAbilityFabric/knightWAF';
+import mageWaf from './abilityFabrics/waponAbilityFabric/mageWAF';
 import fabric from './fabricAbstract';
 
-class weaponFabric extends fabric {
-  protected knightAbility = new knightWAF();
-  protected mageAbility = new mageWAF();
+class WeaponFabric extends fabric {
+  protected knightAbility = new knightWaf();
+  protected mageAbility = new mageWaf();
   protected acherAbility = new archerWAF();
-  public createWeapon(type: Class) {
+  public createWeapon(type: classEnum) {
+    const knightWeapons = [weapons.sword, weapons.axe];
+    const mageWeapons = [weapons.staff, weapons.book];
+    const archerWeapons = [weapons.longbow, weapons.crossbow];
+    let charWeapon: weapon;
     switch (type) {
-      case Class.knight:
-        const knightWeapons = [Weapons.sword, Weapons.axe];
+      case classEnum.knight:
         switch (knightWeapons[this.createRandomNuber(0, knightWeapons.length - 1)]) {
-          case Weapons.sword:
-            const sword = this.createSword();
-            return sword;
-          case Weapons.axe:
-            const axe = this.createAxe();
-            return axe;
+          case weapons.sword:
+            charWeapon = this.createSword();
+            return charWeapon;
+          case weapons.axe:
+            charWeapon = this.createAxe();
+            return charWeapon;
         }
-      case Class.mage:
-        const mageWeapons = [Weapons.staff, Weapons.book];
+        break;
+      case classEnum.mage:
         switch (mageWeapons[this.createRandomNuber(0, mageWeapons.length - 1)]) {
-          case Weapons.staff:
-            const staff = this.createStaff();
-            return staff;
-          case Weapons.book:
-            const book = this.createBook();
-            return book;
+          case weapons.staff:
+            charWeapon = this.createStaff();
+            return charWeapon;
+          case weapons.book:
+            charWeapon = this.createBook();
+            return charWeapon;
         }
-      case Class.archer:
-        const archerWeapons = [Weapons.longbow, Weapons.crossbow];
+        break;
+      case classEnum.archer:
         switch (archerWeapons[this.createRandomNuber(0, archerWeapons.length - 1)]) {
-          case Weapons.longbow:
-            const longBow = this.createLongBow();
-            return longBow;
-          case Weapons.crossbow:
-            const crossBow = this.createCrossBow();
-            return crossBow;
+          case weapons.longbow:
+            charWeapon = this.createLongBow();
+            return charWeapon;
+          case weapons.crossbow:
+            charWeapon = this.createCrossBow();
+            return charWeapon;
         }
+        break;
     }
   }
   private createSword(): weapon {
@@ -104,4 +108,4 @@ class weaponFabric extends fabric {
     return new weapon(name, critChance, critMultiplier, baseAttack, specialAttack);
   }
 }
-export default weaponFabric;
+export default WeaponFabric;

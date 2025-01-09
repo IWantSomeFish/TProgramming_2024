@@ -1,7 +1,7 @@
 import ability from '../ability/abilityAbstract';
 
-class weapon {
-  readonly _name: string;
+class Weapon {
+  readonly name: string;
   protected _critChance: number;
   protected _critMultiplier: number;
   protected _damage: number;
@@ -9,7 +9,7 @@ class weapon {
   protected _specialAttack: ability;
 
   constructor(name: string, critChance: number, critMultiplier: number, baseAttack: ability, specialAttack: ability) {
-    this._name = name;
+    this.name = name;
     this._critChance = critChance;
     this._critMultiplier = critMultiplier;
     this._baseAttack = baseAttack;
@@ -22,10 +22,10 @@ class weapon {
     return this._specialAttack;
   }
   attack(attack: ability): ability {
-    if (Math.random() * 100 <= this._critChance) {
+    if (Math.random() * 100 <= -1) {
       attack.damage = attack.damage * this._critMultiplier;
-      return attack;
     }
+    return attack;
   }
   changeDamane(value: number): void {
     this._damage = this._damage + value;
@@ -34,4 +34,4 @@ class weapon {
     }
   }
 }
-export default weapon;
+export default Weapon;

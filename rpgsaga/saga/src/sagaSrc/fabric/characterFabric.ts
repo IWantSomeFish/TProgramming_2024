@@ -1,52 +1,52 @@
-import Armor from '../armor/armorAbstract';
-import Character from '../character/characterAbstract';
+import armor from '../armor/armorAbstract';
+import character from '../character/characterAbstract';
 import weapon from '../weapon/weaponAbstract';
-import Class from '../enums/classesEnum';
+import classEnum from '../enums/classesEnum';
 
-import ArmorFabric from './armorFabrics/armorFabric';
+import armorFabric from './armorFabrics/armorFabric';
 import fabric from './fabricAbstract';
 import weaponFabric from './weaponFabric';
 
-class characterFabric extends fabric {
+class CharacterFabric extends fabric {
   private weaponFabric = new weaponFabric();
-  private armorFabric = new ArmorFabric();
+  private armorFabric = new armorFabric();
 
-  public createCharacter(type: Class): Character {
+  public createCharacter(type: classEnum): character {
     switch (type) {
-      case Class.knight:
+      case classEnum.knight:
         return this.createKnight();
-      case Class.mage:
+      case classEnum.mage:
         return this.createMage();
-      case Class.archer:
+      case classEnum.archer:
         return this.createArcher();
     }
   }
-  private createKnight(): Character {
+  private createKnight(): character {
     const charNames: string[] = ['Harald', 'Robin', 'Fernando'];
     const charHP: number = this.createRandomNuber(10, 20);
     const charName: string = charNames[this.createRandomNuber(0, charNames.length - 1)];
-    const charWeapon: weapon = this.weaponFabric.createWeapon(Class.knight);
-    const charArmor: Armor = this.armorFabric.createArmor();
-    return new Character(charName, Class.knight, charHP, charArmor, charWeapon);
+    const charWeapon: weapon = this.weaponFabric.createWeapon(classEnum.knight);
+    const charArmor: armor = this.armorFabric.createArmor();
+    return new character(charName, classEnum.knight, charHP, charArmor, charWeapon);
   }
-  private createMage(): Character {
+  private createMage(): character {
     const charNames: string[] = ['Hedosley', 'Emanthe', 'Emara', 'Eguthea'];
     const characterHP: number = this.createRandomNuber(10, 15);
     const charName: string = charNames[this.createRandomNuber(0, charNames.length - 1)];
-    const charWeapon: weapon = this.weaponFabric.createWeapon(Class.mage);
-    const charArmor: Armor = this.armorFabric.createArmor();
-    return new Character(charName, Class.mage, characterHP, charArmor, charWeapon);
+    const charWeapon: weapon = this.weaponFabric.createWeapon(classEnum.mage);
+    const charArmor: armor = this.armorFabric.createArmor();
+    return new character(charName, classEnum.mage, characterHP, charArmor, charWeapon);
   }
-  private createArcher(): Character {
+  private createArcher(): character {
     const charNames: string[] = ['Rodib Good', 'Arrow', 'Kinessa'];
     const characterHP: number = this.createRandomNuber(5, 15);
     const charName: string = charNames[this.createRandomNuber(0, charNames.length - 1)];
-    const charWeapon: weapon = this.weaponFabric.createWeapon(Class.archer);
-    const charArmor: Armor = this.armorFabric.createArmor();
-    return new Character(charName, Class.archer, characterHP, charArmor, charWeapon);
+    const charWeapon: weapon = this.weaponFabric.createWeapon(classEnum.archer);
+    const charArmor: armor = this.armorFabric.createArmor();
+    return new character(charName, classEnum.archer, characterHP, charArmor, charWeapon);
   }
-  public createConcreteChar(name: string, charClass: Class, hp: number, charWeapon: weapon, charArmor: Armor) {
-    return new Character(name, charClass, hp, charArmor, charWeapon);
+  public createConcreteChar(name: string, charClass: classEnum, hp: number, charWeapon: weapon, charArmor: armor) {
+    return new character(name, charClass, hp, charArmor, charWeapon);
   }
 }
-export default characterFabric;
+export default CharacterFabric;

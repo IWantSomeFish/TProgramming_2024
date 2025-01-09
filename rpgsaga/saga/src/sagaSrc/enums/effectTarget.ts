@@ -1,9 +1,9 @@
-enum effectTarget{
-    charHP,
-    canToAct,
-    armorDefense,
-    armorType,
-    weaponDamage,
-    weaponType,
+enum EffectTarget {
+  charHP,
+  canToAct,
+  armorDefense,
+  armorType,
+  weaponDamage,
+  weaponType,
 }
-export default effectTarget
+export default EffectTarget;

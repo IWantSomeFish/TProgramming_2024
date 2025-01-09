@@ -1,28 +1,28 @@
 import ability from '../../ability/abilityAbstract';
-import Armor from '../../armor/armorAbstract';
-import armorAF from '../abilityFabrics/armorAF';
-import Elements from '../../enums/elementsEnum';
+import armor from '../../armor/armorAbstract';
+import armorAf from '../abilityFabrics/armorAF';
+import elements from '../../enums/elementsEnum';
 import fabric from '../fabricAbstract';
 
 class ArmorFabric extends fabric {
-  private specialFabric = new armorAF();
+  private specialFabric = new armorAf();
   private armorNames = ['Steel Plate', 'Black rock', 'Vail of night', 'Daybreaker'];
-  private elements: Elements[] = [
-    Elements.fire,
-    Elements.physic,
-    Elements.thunder,
-    Elements.thunder,
-    Elements.water,
-    Elements.wind,
+  private elements: elements[] = [
+    elements.fire,
+    elements.physic,
+    elements.thunder,
+    elements.thunder,
+    elements.water,
+    elements.wind,
   ];
-  public createArmor(): Armor {
+  public createArmor(): armor {
     const armorName = this.armorNames[this.createRandomNuber(0, this.armorNames.length - 1)];
     const defence = this.createRandomNuber(5, 10);
     const defenceType = this.elements[this.createRandomNuber(0, this.elements.length - 1)];
-    return new Armor(armorName, defence, defenceType, this.specialFabric.createAbility());
+    return new armor(armorName, defence, defenceType, this.specialFabric.createAbility());
   }
-  public createConctereArmor(name: string, defence: number, defenceType: Elements, armorAbility: ability): Armor {
-    return new Armor(name, defence, defenceType, armorAbility);
+  public createConctereArmor(name: string, defence: number, defenceType: elements, armorAbility: ability): armor {
+    return new armor(name, defence, defenceType, armorAbility);
   }
 }
 export default ArmorFabric;

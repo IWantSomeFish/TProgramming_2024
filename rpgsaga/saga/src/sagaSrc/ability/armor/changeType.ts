@@ -1,17 +1,17 @@
 import elementChange from '../../effects/changeElement';
 import abilityTarget from '../../enums/abilityTarget';
-import Elements from '../../enums/elementsEnum';
+import elements from '../../enums/elementsEnum';
 import ability from '../abilityAbstract';
 
-class changeType extends ability {
-  readonly _name: string = 'Изменение брони';
+class ChangeType extends ability {
+  readonly name: string = 'Изменение брони';
   protected _discription: string = `Меняет тип защиты персонажа`;
   protected _onUseEffect: elementChange = new elementChange();
   protected _damage: number = 0;
-  protected _abilityElement: Elements = Elements.pure;
-  readonly _abilityTarget: abilityTarget = abilityTarget.onSelf;
+  protected _abilityElement: elements = elements.pure;
+  readonly abilityTarget: abilityTarget = abilityTarget.onSelf;
   onUse(): void {
-    this._onUseEffect.setDefaultType(Elements.wind);
+    this._onUseEffect.setDefaultType(elements.wind);
   }
 }
-export default changeType;
+export default ChangeType;

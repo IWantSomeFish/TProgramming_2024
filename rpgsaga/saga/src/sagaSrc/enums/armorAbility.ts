@@ -1,6 +1,6 @@
-enum armorAbility {
+enum ArmorAbility {
   changeElement,
   ShieldUp,
   Dispell,
 }
-export default armorAbility;
+export default ArmorAbility;

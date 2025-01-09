@@ -1,29 +1,39 @@
 import ability from '../ability/abilityAbstract';
-import Armor from '../armor/armorAbstract';
+import armor from '../armor/armorAbstract';
 import effect from '../effects/effectAbstract';
-import Class from '../enums/classesEnum';
+import classEnum from '../enums/classesEnum';
 import effectTarget from '../enums/effectTarget';
 import weapon from '../weapon/weaponAbstract';
 
 class Character {
-  readonly _name: string;
-  readonly _chracterClass: Class;
+  readonly name: string;
+  readonly chracterClass: classEnum;
   protected _maxHP: number;
   protected _currentHP: number;
-  protected _currentArmor: Armor;
+  protected _currentArmor: armor;
   protected _currentWeapon: weapon;
   protected _canToAct: boolean = true;
   protected _superimposedEffects: effect[] = [];
 
-  constructor(name: string, charClass: Class, maxHP: number, armor: Armor, weapon: weapon) {
-    this._chracterClass = charClass;
-    this._name = name;
+  constructor(name: string, charClass: classEnum, maxHP: number, charArmor: armor, charWeapon: weapon) {
+    this.chracterClass = charClass;
+    this.name = name;
     this._maxHP = maxHP;
     this._currentHP = maxHP;
-    this._currentArmor = armor;
-    this._currentWeapon = weapon;
+    this._currentArmor = charArmor;
+    this._currentWeapon = charWeapon;
   }
-  takeAttack(attack: ability) {
+  chooseAttack(): ability {
+    const randInt = this.createRandomNuber(1, 3);
+    if (randInt === 1) {
+      return this._currentWeapon.attack(this._currentWeapon.baseAttack);
+    } else if (randInt === 2) {
+      return this._currentWeapon.attack(this._currentWeapon.specialAttack);
+    } else if (randInt === 3) {
+      return this._currentArmor.armorAbility;
+    }
+  }
+  takeAttack(attack: ability): [number, effect] {
     if (attack.effect !== undefined) {
       if (attack.effect.getEffectType !== this._currentArmor.defType) {
         this.addNewEffect(attack.effect);
@@ -31,10 +41,17 @@ class Character {
     }
     const damage = this._currentArmor.reduceDamage(attack.damage, attack.abilityType);
     this._currentHP = this._currentHP - damage;
+    let incomingEffect: effect;
+    if (attack.effect !== undefined) {
+      incomingEffect = attack.effect;
+    } else {
+      incomingEffect = undefined;
+    }
+    return [damage, incomingEffect];
   }
 
-  addNewEffect(effect: effect) {
-    this._superimposedEffects.push(effect);
+  addNewEffect(incomingEffect: effect) {
+    this._superimposedEffects.push(incomingEffect);
   }
   deleteEndedEffect() {
     for (let i = 0; i < this._superimposedEffects.length; i++) {
@@ -52,14 +69,14 @@ class Character {
       }
     }
   }
-  applyEffect(effect: effect): void {
+  applyEffect(incomingEffect: effect): void {
     let result;
-    if (effect.getDuration != -1) {
-      result = effect.useEffect();
+    if (incomingEffect.getDuration !== -1) {
+      result = incomingEffect.useEffect();
     } else {
-      result = effect.effectEnd();
+      result = incomingEffect.effectEnd();
     }
-    switch (effect._effectTarget) {
+    switch (incomingEffect.effectTarget) {
       case effectTarget.charHP:
         this._currentHP = this._currentHP + result;
         break;
@@ -73,23 +90,27 @@ class Character {
         this._currentWeapon.changeDamane(result);
     }
   }
-  set actAbility(value: boolean){
+  set actAbility(value: boolean) {
     this._canToAct = value;
   }
   get getEffects(): effect[] {
     return this._superimposedEffects;
   }
-  get characterHP(): number{
+  get characterHP(): number {
     return this._currentHP;
   }
-  get canToAct(): boolean{
+  get canToAct(): boolean {
     return this._canToAct;
   }
-  get currentArmor(): Armor{
+  get currentArmor(): armor {
     return this._currentArmor;
   }
-  get currentWeapon(): weapon{
+  get currentWeapon(): weapon {
     return this._currentWeapon;
+  }
+  private createRandomNuber(min: number, max: number): number {
+    const randomNumber = Math.random() * (max - min) + min;
+    return Number(randomNumber.toFixed(0));
   }
 }
 

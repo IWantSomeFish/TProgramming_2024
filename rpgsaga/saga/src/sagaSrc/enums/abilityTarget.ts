@@ -1,8 +1,8 @@
-enum abilityTarget {
+enum AbilityTarget {
   onSelf,
   oneEnemy,
   oneAllay,
   allEnemy,
   allAllay,
 }
-export default abilityTarget;
+export default AbilityTarget;

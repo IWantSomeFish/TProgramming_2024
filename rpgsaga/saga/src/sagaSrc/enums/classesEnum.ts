@@ -1,7 +1,7 @@
-enum Class {
+enum ClassEnum {
   knight,
   mage,
   archer,
 }
 
-export default Class;
+export default ClassEnum;

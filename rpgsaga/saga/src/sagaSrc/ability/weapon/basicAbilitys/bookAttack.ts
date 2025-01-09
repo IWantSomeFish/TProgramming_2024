@@ -1,16 +1,16 @@
 import abilityTarget from '../../../enums/abilityTarget';
-import Elements from '../../../enums/elementsEnum';
+import elements from '../../../enums/elementsEnum';
 import ability from '../../abilityAbstract';
 
-class bookAttack extends ability {
-  readonly _name: string = 'Атака книгой';
+class BookAttack extends ability {
+  readonly name: string = 'Атака книгой';
   protected _discription: string = `Обычная атака книгой, наносит ${this._damage} урона всем врагам`;
   protected _onUseEffect = undefined;
   protected _damage: number = 15;
-  readonly _abilityTarget: abilityTarget = abilityTarget.allEnemy;
-  protected _abilityElement: Elements = Elements.physic;
+  readonly abilityTarget: abilityTarget = abilityTarget.allEnemy;
+  protected _abilityElement: elements = elements.physic;
   onUse(): number {
     return this._damage;
   }
 }
-export default bookAttack;
+export default BookAttack;

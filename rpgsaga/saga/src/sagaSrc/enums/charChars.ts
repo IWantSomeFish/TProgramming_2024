@@ -1,6 +1,6 @@
-enum charCharacteristic {
+enum CharCharacteristic {
   charMaxHP,
   charCurrentHP,
   charCanToAct,
 }
-export default charCharacteristic;
+export default CharCharacteristic;
