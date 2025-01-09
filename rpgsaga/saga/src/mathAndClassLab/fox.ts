@@ -29,9 +29,11 @@ class Fox {
   public get sex(): string {
     return this._name;
   }
-  public set sex(sex: string) {
-    if (sex === 'female' || sex === 'male' || sex === 'Female' || sex === 'Male') {
-      this._sex = sex;
+  public set sex(n: string) {
+    n = n.toLowerCase();
+
+    if (n === 'female' || n === 'male') {
+      this._sex = n;
     } else {
       throw new Error('Uncorrect sex parametr');
     }

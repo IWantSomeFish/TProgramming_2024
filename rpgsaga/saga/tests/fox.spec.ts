@@ -36,7 +36,7 @@ describe('Fox class methods tests',()=>{
         })
         it('Sex basic test',()=>{
             newFox.sex = 'Female'
-            expect(newFox.sex == 'Female')
+            expect(newFox.sex == 'female')
         })
         it('Age uncorrect test',()=>{
             expect(()=>{
