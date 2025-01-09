@@ -30,10 +30,10 @@ class Fox {
     return this._name;
   }
   public set sex(n: string) {
-    n.toLowerCase();
+    const sex = n.toLowerCase();
 
-    if (n === 'female' || n === 'male') {
-      this._sex = n;
+    if (sex === 'female' || sex === 'male') {
+      this._sex = sex;
     } else {
       throw new Error('Uncorrect sex parametr');
     }
