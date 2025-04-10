@@ -41,9 +41,11 @@ class Character {
     }
     const damage = this._currentArmor.reduceDamage(attack.damage, attack.abilityType);
     this._currentHP = this._currentHP - damage;
-    let incomingEffect: effect = undefined;
+    let incomingEffect: effect;
     if (attack.effect !== undefined) {
       incomingEffect = attack.effect;
+    } else {
+      incomingEffect = undefined;
     }
     return [damage, incomingEffect];
   }
