@@ -3,9 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatsModule } from './cats/cats.module';
-import { DogsModule } from './dogs/dogs.module';
-import { Dog } from './dogs/entities/dog.entity';
+import { User } from './users/entities/user.entity';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -16,11 +15,10 @@ import { Dog } from './dogs/entities/dog.entity';
       username: 'postgres',
       password: 'postgres',
       database: 'sample',
-      entities: [Dog],
+      entities: [User],
       synchronize: true,
     }),
-    CatsModule,
-    DogsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
