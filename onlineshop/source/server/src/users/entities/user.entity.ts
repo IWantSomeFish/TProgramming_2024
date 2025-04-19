@@ -8,8 +8,8 @@ export class User {
   @Column()
   login: string;
 
-  @Column()
-  password: number;
+  @Column({ nullable: true })
+  password: string;
 
   @Column()
   email: string;
