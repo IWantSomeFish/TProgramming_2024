@@ -19,7 +19,9 @@ export class ProjectsService {
   }
 
   async findAll(): Promise<Project[]> {
-    const projects = await this.projectsRepository.find();
+    const projects = await this.projectsRepository.find({
+      relations: ['user'],
+    });
     return projects;
   }
 
@@ -40,6 +42,8 @@ export class ProjectsService {
     const result = await this.projectsRepository.delete(id);
     if (result.affected === 0) {
       throw new NotFoundException(`Project with ID ${id} not found`);
+    } else {
+      return result;
     }
   }
 }

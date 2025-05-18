@@ -1,4 +1,4 @@
-import { IsString, IsDate } from 'class-validator';
+import { IsString, IsDate, IsInt, IsPositive } from 'class-validator';
 import { Column } from 'typeorm';
 
 import { User } from 'src/users/entities/user.entity';
@@ -18,6 +18,8 @@ export class CreateProjectDto {
   @Column()
   readonly alreadyCollected: number;
 
+  @IsInt()
+  @IsPositive()
   @Column(() => User)
   readonly user: User;
 

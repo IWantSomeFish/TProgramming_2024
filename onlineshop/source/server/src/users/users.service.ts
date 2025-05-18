@@ -36,10 +36,12 @@ export class UsersService {
     return this.findOne(id);
   }
 
-  async remove(id: number): Promise<void> {
-    const result = await this.usersRepository.delete(id);
+  async remove(id: number) {
+    const result = await this.usersRepository.delete({ id: id });
     if (result.affected === 0) {
       throw new NotFoundException(`User with ID ${id} not found`);
+    } else {
+      return result;
     }
   }
 }

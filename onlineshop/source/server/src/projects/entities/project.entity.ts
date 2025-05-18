@@ -1,5 +1,11 @@
 import { IsString } from 'class-validator';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { User } from '../../users/entities/user.entity';
 
@@ -23,6 +29,7 @@ export class Project {
   alreadyCollected: number;
 
   @ManyToOne(() => User, (user) => user.id, { onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
   @Column()

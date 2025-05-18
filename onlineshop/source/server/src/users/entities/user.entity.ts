@@ -1,5 +1,7 @@
 import { IsString, Matches, MinLength } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Project } from '../../projects/entities/project.entity';
 
 @Entity()
 export class User {
@@ -27,4 +29,7 @@ export class User {
   @IsString()
   @MinLength(3, { message: 'Username must be at least 3 characters long' })
   nickname: string;
+
+  @OneToMany(() => Project, (project) => project.id)
+  projects: Project[];
 }
