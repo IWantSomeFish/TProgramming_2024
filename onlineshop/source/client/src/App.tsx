@@ -10,19 +10,25 @@ const App: React.FC = () => (
     <div className='Grid' style={{paddingLeft: 30}}>
         <Grid2 container spacing={2}>
         <Grid2>
-            <div className='Users'>
+            <div style={{paddingBottom: 10}}>
                 <TextField defaultValue="-1" id="user_id" label="Outlined" variant="outlined"/>
             </div>
-            <div>
+            <div style={{paddingBottom: 10}}>
                 <Button variant="contained" onClick={getUsers}>Get all users</Button>
-            </div>   
+            </div> 
+            <div style={{paddingBottom: 10}}>
+                <Button variant="contained">Create User</Button>
+            </div>  
         </Grid2>
         <Grid2>
-            <div className='Projects'>
-                <TextField defaultValue="-1" id="project_id" label="Outlined" variant="outlined" />
+            <div style={{paddingBottom: 10}}>
+                <TextField defaultValue='-1' id="project_id" label="Outlined" variant="outlined"/>
             </div>
-            <div>
+            <div style={{paddingBottom: 10}}>
                 <Button variant="contained" onClick={getProjects}>Get all projects</Button>
+            </div>
+            <div style={{paddingBottom: 10}}>
+                <Button variant="contained">Create Project</Button>
             </div>
         </Grid2>
         </Grid2>
