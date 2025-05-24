@@ -1,20 +1,6 @@
 import axios from "axios";
-import { User } from "./getUsers";
+import { GetProjectsResponse } from "../types/project";
 
-export type project = {
-    id: number,
-    projectName: string,
-    description: string,
-    feeAmount: number,
-    alreadyCollected: number,
-    user: User,
-    likesCount: number,
-    dislikesCount: number,
-};
-
-type GetProjectsResponse = {
-    data: project[]
-};
 
 export default async function getProjects() {
     try{

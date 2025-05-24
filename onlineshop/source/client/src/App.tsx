@@ -4,6 +4,8 @@ import './App.css';
 import { Button, Grid2, TextField } from '@mui/material';
 import getProjects from './components/getProjects';
 import getUsers from './components/getUsers';
+import deleteUser from './components/deleteUser';
+import deleteProject from './components/deleteProject';
 
 const App: React.FC = () => (
 <div className="App" style={{paddingTop: 30}}>
@@ -17,7 +19,7 @@ const App: React.FC = () => (
                 <Button variant="contained" onClick={getUsers}>Get all users</Button>
             </div> 
             <div style={{paddingBottom: 10}}>
-                <Button variant="contained">Create User</Button>
+                <Button variant="contained" onClick={deleteUser}>Delete User</Button>
             </div>  
         </Grid2>
         <Grid2>
@@ -28,7 +30,7 @@ const App: React.FC = () => (
                 <Button variant="contained" onClick={getProjects}>Get all projects</Button>
             </div>
             <div style={{paddingBottom: 10}}>
-                <Button variant="contained">Create Project</Button>
+                <Button variant="contained" onClick={deleteProject}>Delete Project</Button>
             </div>
         </Grid2>
         </Grid2>
