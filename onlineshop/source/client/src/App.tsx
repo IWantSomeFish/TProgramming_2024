@@ -6,6 +6,7 @@ import getProjects from './components/getProjects';
 import getUsers from './components/getUsers';
 import deleteUser from './components/deleteUser';
 import deleteProject from './components/deleteProject';
+import CreateProjectForm from './components/createProject';
 
 const App: React.FC = () => (
 <div className="App" style={{paddingTop: 30}}>
@@ -32,6 +33,7 @@ const App: React.FC = () => (
             <div style={{paddingBottom: 10}}>
                 <Button variant="contained" onClick={deleteProject}>Delete Project</Button>
             </div>
+                <CreateProjectForm/>
         </Grid2>
         </Grid2>
     </div>
