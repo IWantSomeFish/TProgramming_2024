@@ -37,8 +37,8 @@ export default function CreateProjectForm() {
   const today = new Date();
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
-    projectMame: '',
-    description: '',
+    projectName: '',
+    desription: '',
     feeAmount: 0,
     alreadyCollected: 0,
     likesCount: 0,
@@ -74,21 +74,21 @@ export default function CreateProjectForm() {
           <form id="contact-form" onSubmit={handleSubmit}>
             <TextField
               margin="dense"
-              name="projectMame"
+              name="projectName"
               label="Project name"
               type="text"
               fullWidth
-              value={formData.projectMame}
+              value={formData.projectName}
               onChange={handleChange}
               required
             />
             <TextField
               margin="dense"
-              name="description"
+              name="desription"
               label="Description"
               type="text"
               fullWidth
-              value={formData.description}
+              value={formData.desription}
               onChange={handleChange}
               required
             />
