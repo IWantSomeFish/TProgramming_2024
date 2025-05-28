@@ -10,9 +10,9 @@ import {
 import axios from 'axios';
 import { GetProjectsResponse } from '../types/project';
 
-async function createProject(request: object) {
+async function createUser(request: object) {
     try{
-        const data = await axios.post<GetProjectsResponse>(`http://localhost:4000/api/projects`,request,
+        const data = await axios.post<GetProjectsResponse>(`http://localhost:4000/api/users`,request,
             {
             headers:{
                 Accept:'application/json',
@@ -33,18 +33,14 @@ async function createProject(request: object) {
   }
 }
 
-export default function CreateProjectForm() {
-  const today = new Date();
+export default function CreateUserForm() {
+
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
-    projectMame: '',
-    description: '',
-    feeAmount: 0,
-    alreadyCollected: 0,
-    likesCount: 0,
-    dislikesCount: 0,
-    user: -1,
-    endTime: `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`,
+    login: '',
+    password: '',
+    email: '',
+    nickname: '',
   });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -60,95 +56,55 @@ export default function CreateProjectForm() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log('Данные формы:', formData);
-    createProject(formData);
+    createUser(formData);
     handleClose();
   };
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleOpen}>Create project</Button>
+      <Button variant="contained" color="primary" onClick={handleOpen}>Create user</Button>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Project create form</DialogTitle>
+        <DialogTitle>User create form</DialogTitle>
         <DialogContent>
           <form id="contact-form" onSubmit={handleSubmit}>
             <TextField
               margin="dense"
-              name="projectMame"
-              label="Project name"
+              name="login"
+              label="Login"
               type="text"
               fullWidth
-              value={formData.projectMame}
+              value={formData.login}
               onChange={handleChange}
               required
             />
             <TextField
               margin="dense"
-              name="description"
-              label="Description"
+              name="password"
+              label="Password"
               type="text"
               fullWidth
-              value={formData.description}
+              value={formData.password}
               onChange={handleChange}
               required
             />
             <TextField
               margin="dense"
-              name="feeAmount"
-              label="Fee Amount"
-              type="number"
+              name="email"
+              label="Email"
+              type="email"
               fullWidth
-              value={formData.feeAmount}
+              value={formData.email}
               onChange={handleChange}
               required
             />
             <TextField
               margin="dense"
-              name="alreadyCollected"
-              label="Already Collected"
-              type="number"
+              name="nickname"
+              label="Nickname"
+              type="text"
               fullWidth
-              value={formData.alreadyCollected}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="likesCount"
-              label="Likes Count"
-              type="number"
-              fullWidth
-              value={formData.likesCount}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="dislikesCount"
-              label="Dislikes Count"
-              type="number"
-              fullWidth
-              value={formData.dislikesCount}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="user"
-              label="User ID"
-              type="number"
-              fullWidth
-              value={formData.user}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="endTime"
-              label="End Time"
-              type="date"
-              fullWidth
-              value={formData.endTime}
+              value={formData.nickname}
               onChange={handleChange}
               required
             />
