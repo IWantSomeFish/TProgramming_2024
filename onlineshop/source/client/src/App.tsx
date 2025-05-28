@@ -8,6 +8,8 @@ import deleteUser from './components/deleteUser';
 import deleteProject from './components/deleteProject';
 import CreateProjectForm from './components/createProject';
 import CreateUserForm from './components/createUser';
+import UpdateProjectForm from './components/updateProject';
+import UpdateUserForm from './components/updateUser';
 
 const App: React.FC = () => (
 <div className="App" style={{paddingTop: 30}}>
@@ -23,7 +25,10 @@ const App: React.FC = () => (
             <div style={{paddingBottom: 10}}>
                 <Button variant="contained" onClick={deleteUser}>Delete User</Button>
             </div>
-            <CreateUserForm/>  
+            <div style={{paddingBottom: 10}}>
+            <CreateUserForm/>
+            </div>
+            <UpdateUserForm/> 
         </Grid2>
         <Grid2>
             <div style={{paddingBottom: 10}}>
@@ -35,7 +40,10 @@ const App: React.FC = () => (
             <div style={{paddingBottom: 10}}>
                 <Button variant="contained" onClick={deleteProject}>Delete Project</Button>
             </div>
+            <div style={{paddingBottom: 10}}>
                 <CreateProjectForm/>
+            </div>
+                <UpdateProjectForm/> 
         </Grid2>
         </Grid2>
     </div>
