@@ -30,7 +30,7 @@ export default async function getUsers() {
     }
         console.log(JSON.stringify(data.data, null, 4));
         console.log('response status is: ', data.status);
-        return data;
+        return data.data;
     }
     catch (error) {
     if (axios.isAxiosError(error)) {
